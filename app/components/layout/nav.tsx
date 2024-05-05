@@ -26,9 +26,11 @@ export const Nav = () => {
       <div className="max-w-screen-xl w-full h-100px justify-between flex items-center">
         <h1 className="w-200px">Keith Jasper</h1>
         <ul className="flex items-center">
-          {NavData.map((i) => (
-            <li>
-              <a href={i.location} className="flex py-2 px-6 ">
+          {NavData.map((i, index) => (
+            <li key={index}>
+              {" "}
+              {/* Add key prop */}
+              <a href={i.location} className="flex py-2 px-6">
                 <i className={i.image}></i>
                 {i.content}
               </a>
