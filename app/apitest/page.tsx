@@ -7,18 +7,20 @@ export const metadata: Metadata = {
   title: "Contact",
 };
 
+async function getUsersList() {
+  const res = await fetch(`http://localhost:5129/Users`);
+  console.log(res.json());
+  return res.json();
+}
+
 const ApiTest = async () => {
-  const dynamicData = await fetch(`http://localhost:5129/Users`, {
-    cache: "no-store",
-  });
-  console.log(dynamicData);
   return (
     <>
       <Head>
         <title>ApiTest</title>
       </Head>
       <h1>ApiTest</h1>
-      <div></div>
+      <div>{getUsersList()}</div>
     </>
   );
 };
