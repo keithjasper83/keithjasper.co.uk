@@ -1,16 +1,34 @@
-import { use } from "react";
+import { useState, useEffect } from "react";
 import Head from "next/head";
 
 async function getNames() {
-  return await await fetch("http://localhost:5129/Users", {
+  const response = await fetch("http://localhost:5129/Users", {
     cache: "no-store",
   });
+  const data = await response.json(); // Convert response to JSON
+  return data;
 }
 
 const ApiTest = () => {
   // State to store the fetched users
-  const users = use(getNames());
-  console.log(users);
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    // Fetch data when the component mounts
+    async function fetchData() {
+      try {
+        const userData = await getNames();
+        setUsers(userData);
+      } catch (error) {
+        console.error("Error fetching users:", error);
+      }
+    }
+
+    fetchData();
+
+    // Cleanup function not needed here because the effect does not have any cleanup
+  }, []); // Empty dependency array means it runs only once when the component mounts
+
   return (
     <>
       <Head>
