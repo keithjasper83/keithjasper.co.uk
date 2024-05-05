@@ -22,9 +22,9 @@ export default async function Page() {
     <main>
       {/* Using map to iterate over each item in the data array */}
       {data.map((item: any, index: number) => (
-        <div key={index}>
+        <div key={index} className="flex">
           {/* Accessing name and id properties of each item */}
-          <div>{item.name}</div>
+          <div className="">{item.name}</div>
           <div>{item.id}</div>
         </div>
       ))}
