@@ -10,7 +10,7 @@ async function getNames() {
 const ApiTest = () => {
   // State to store the fetched users
   const users = use(getNames());
-
+  console.log(users);
   return (
     <>
       <Head>
