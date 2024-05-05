@@ -25,7 +25,7 @@ export default async function Page() {
         </div>;
       })}
       HELLO
-      {data.json()}
+      {Object.keys(data)}
       {data[0].name}
       {data[1].name}
     </main>
