@@ -9,7 +9,7 @@ interface User {
 }
 
 async function getNames(): Promise<User[]> {
-  const response = await fetch("http://localhost:5129/Users", {
+  const response = await fetch("http://www.keithjasper.co.uk:5129/Users", {
     cache: "no-store",
   });
   const data = await response.json(); // Convert response to JSON
