@@ -19,5 +19,5 @@ async function getData() {
 export default async function Page() {
   const data = await getData();
   console.log(data);
-  return <main>HELLO</main>;
+  return <main>{data[0].name}</main>;
 }
