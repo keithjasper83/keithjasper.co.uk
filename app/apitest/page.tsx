@@ -16,6 +16,6 @@ async function getData() {
 
 export default async function Page() {
   const data = await getData();
-  console.log(data.json());
+  console.log(data);
   return <main></main>;
 }
