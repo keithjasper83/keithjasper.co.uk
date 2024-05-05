@@ -18,17 +18,21 @@ export default async function Page() {
   //console.log(data);
   return (
     <main>
-      {data.map((i: any) => {
-        <div>
-          {i.name}
-          {i.id}
-        </div>;
-      })}
+      {/* Using map to iterate over each item in the data array */}
+      {data.map((item: any, index: number) => (
+        <div key={index}>
+          {/* Accessing name and id properties of each item */}
+          <div>{item.name}</div>
+          <div>{item.id}</div>
+        </div>
+      ))}
       HELLO
-      {Object.keys(data).forEach((key) => {
-        console.log(data[key].name);
+      {/* Iterating over the array directly */}
+      {data.forEach((item: any) => {
+        console.log(item.name); // This logs the name to console but doesn't return anything in JSX
       })}
       HAND WRITTEN
+      {/* Accessing name property of the first two items */}
       {data[0].name}
       {data[1].name}
     </main>
