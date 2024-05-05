@@ -1,28 +1,47 @@
-//import { Head } from "next/document";
-import { Metadata } from "next";
-
+import { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
 
-export const metadata: Metadata = {
-  title: "Contact",
-};
-
-async function getUsersList() {
-  const res = await fetch(`http://localhost:5129/Users`);
-  console.log(res.json());
-  return res.json();
+interface User {
+  id: number;
+  name: string;
 }
 
-const ApiTest = async () => {
+interface Props {
+  users: User[];
+}
+
+const ApiTest: NextPage<Props> = ({ users }) => {
   return (
     <>
       <Head>
         <title>ApiTest</title>
       </Head>
       <h1>ApiTest</h1>
-      <div>{getUsersList()}</div>
+      <div>
+        {/* Render fetched users */}
+        <ul>
+          {users.map((user) => (
+            <li key={user.id}>{user.name}</li>
+          ))}
+        </ul>
+      </div>
     </>
   );
+};
+
+export const getServerSideProps: GetServerSideProps<Props> = async () => {
+  try {
+    const res = await fetch(`http://localhost:5129/Users`);
+    const users: User[] = await res.json();
+    return {
+      props: { users },
+    };
+  } catch (error) {
+    console.error("Error fetching users:", error);
+    return {
+      props: { users: [] },
+    };
+  }
 };
 
 export default ApiTest;
