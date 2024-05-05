@@ -28,15 +28,6 @@ export default async function Page() {
           <div>{item.id}</div>
         </div>
       ))}
-      HELLO
-      {/* Iterating over the array directly */}
-      {data.forEach((item: any) => {
-        console.log(item.name); // This logs the name to console but doesn't return anything in JSX
-      })}
-      HAND WRITTEN
-      {/* Accessing name property of the first two items */}
-      {data[0].name}
-      {data[1].name}
     </main>
   );
 }
