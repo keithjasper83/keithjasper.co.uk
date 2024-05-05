@@ -15,7 +15,7 @@ async function getData() {
 
 export default async function Page() {
   const data = await getData();
-  console.log(data);
+  //console.log(data);
   return (
     <main>
       {data.map((i: any) => {
@@ -25,7 +25,9 @@ export default async function Page() {
         </div>;
       })}
       HELLO
-      {data}
+      {data.json()}
+      {data[0].name}
+      {data[1].name}
     </main>
   );
 }
