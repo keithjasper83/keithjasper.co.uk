@@ -1,7 +1,7 @@
 async function getData() {
   //const res = await fetch("http://localhost:5129/Users");
   //jsonplaceholder.typicode.com/users
-  const res = await fetch("https://jsonplaceholder.typicode.com/users");
+  const res = await fetch("http://keithjasper.co.uk:8081/Users/");
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
 
