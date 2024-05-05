@@ -1,4 +1,8 @@
+// /app/apitest/page.tsx
+
+import { GetServerSideProps } from "next";
 import Head from "next/head";
+import getConfig from "next/config";
 
 interface User {
   id: number;
@@ -6,7 +10,8 @@ interface User {
   // Add more properties as needed
 }
 
-const API_URL = "http://localhost:5129/Users";
+const { serverRuntimeConfig } = getConfig();
+const API_URL = serverRuntimeConfig.API_URL;
 
 const ApiTest = ({ users }: { users: User[] }) => {
   return (
@@ -27,7 +32,7 @@ const ApiTest = ({ users }: { users: User[] }) => {
   );
 };
 
-export const getServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   try {
     const response = await fetch(API_URL);
     const data = await response.json();
