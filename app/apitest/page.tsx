@@ -1,5 +1,6 @@
 import { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
+import { isObject } from "util";
 
 async function getData() {
   const res = await fetch("http://localhost:5129/Users");
@@ -19,5 +20,14 @@ async function getData() {
 export default async function Page() {
   const data = await getData();
   console.log(data);
-  return <main>{data[0].name}</main>;
+  return (
+    <main>
+      {data.map((i: any) => {
+        <div>
+          {i.name}
+          {i.id}
+        </div>;
+      })}
+    </main>
+  );
 }
