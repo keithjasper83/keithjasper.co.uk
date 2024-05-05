@@ -9,6 +9,8 @@ async function getData() {
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
     throw new Error("Failed to fetch data");
+  } else {
+    console.log("Datafetch complete");
   }
 
   return res.json();
@@ -17,5 +19,5 @@ async function getData() {
 export default async function Page() {
   const data = await getData();
   console.log(data);
-  return <main></main>;
+  return <main>HELLO</main>;
 }
