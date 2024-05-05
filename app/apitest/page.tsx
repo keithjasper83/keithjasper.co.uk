@@ -1,5 +1,3 @@
-"use client";
-import { useState, useEffect } from "react";
 import Head from "next/head";
 
 interface User {
@@ -8,35 +6,9 @@ interface User {
   // Add more properties as needed
 }
 
-async function getNames(): Promise<User[]> {
-  //const response = await fetch("http://www.keithjasper.co.uk:5129/Users", {
-  const response = await fetch("https://jsonplaceholder.typicode.com/todos", {
-    cache: "no-store",
-  });
-  const data = await response.json(); // Convert response to JSON
-  return data;
-}
+const API_URL = "http://localhost:5129/Users";
 
-const ApiTest = () => {
-  // State to store the fetched users
-  const [users, setUsers] = useState<User[]>([]); // Specify the type explicitly
-
-  useEffect(() => {
-    // Fetch data when the component mounts
-    async function fetchData() {
-      try {
-        const userData = await getNames();
-        setUsers(userData);
-      } catch (error) {
-        console.error("Error fetching users:", error);
-      }
-    }
-
-    fetchData();
-
-    // Cleanup function not needed here because the effect does not have any cleanup
-  }, []); // Empty dependency array means it runs only once when the component mounts
-
+const ApiTest = ({ users }: { users: User[] }) => {
   return (
     <>
       <Head>
@@ -53,6 +25,25 @@ const ApiTest = () => {
       </div>
     </>
   );
+};
+
+export const getServerSideProps = async () => {
+  try {
+    const response = await fetch(API_URL);
+    const data = await response.json();
+    return {
+      props: {
+        users: data,
+      },
+    };
+  } catch (error) {
+    console.error("Error fetching users:", error);
+    return {
+      props: {
+        users: [],
+      },
+    };
+  }
 };
 
 export default ApiTest;
