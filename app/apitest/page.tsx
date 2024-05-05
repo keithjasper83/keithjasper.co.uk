@@ -1,47 +1,21 @@
 import { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
 
-interface User {
-  id: number;
-  name: string;
-}
+async function getData() {
+  const res = await fetch("http://localhost:5129/Users");
+  // The return value is *not* serialized
+  // You can return Date, Map, Set, etc.
 
-interface Props {
-  users: User[];
-}
-
-const ApiTest: NextPage<Props> = ({ users }) => {
-  return (
-    <>
-      <Head>
-        <title>ApiTest</title>
-      </Head>
-      <h1>ApiTest</h1>
-      <div>
-        {/* Render fetched users */}
-        <ul>
-          {users.map((user) => (
-            <li key={user.id}>{user.name}</li>
-          ))}
-        </ul>
-      </div>
-    </>
-  );
-};
-
-export const getServerSideProps: GetServerSideProps<Props> = async () => {
-  try {
-    const res = await fetch(`http://localhost:5129/Users`);
-    const users: User[] = await res.json();
-    return {
-      props: { users },
-    };
-  } catch (error) {
-    console.error("Error fetching users:", error);
-    return {
-      props: { users: [] },
-    };
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch data");
   }
-};
 
-export default ApiTest;
+  return res.json();
+}
+
+export default async function Page() {
+  const data = await getData();
+
+  return <main></main>;
+}
