@@ -2,7 +2,13 @@
 import { useState, useEffect } from "react";
 import Head from "next/head";
 
-async function getNames() {
+interface User {
+  id: number;
+  name: string;
+  // Add more properties as needed
+}
+
+async function getNames(): Promise<User[]> {
   const response = await fetch("http://localhost:5129/Users", {
     cache: "no-store",
   });
@@ -12,7 +18,7 @@ async function getNames() {
 
 const ApiTest = () => {
   // State to store the fetched users
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState<User[]>([]); // Specify the type explicitly
 
   useEffect(() => {
     // Fetch data when the component mounts
