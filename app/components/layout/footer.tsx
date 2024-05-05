@@ -16,8 +16,8 @@ export const Footer = () => {
         </ul>
         <ul>
           <li>Footer Content 1</li>
-          <li>Footer Content 1</li>
-          <li>Footer Content 1</li>
+          <li>Footer Content 2</li>
+          <li>Footer Content 3</li>
         </ul>
       </div>
     </footer>
