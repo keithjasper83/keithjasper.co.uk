@@ -26,7 +26,7 @@ export default async function Page() {
       })}
       HELLO
       {Object.keys(data).forEach((key) => {
-        data[key].name;
+        console.log(data[key].name);
       })}
       HAND WRITTEN
       {data[0].name}
