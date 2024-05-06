@@ -5,6 +5,8 @@ import { Inter } from "next/font/google";
 import { Nav } from "../components/layout/nav";
 import { Footer } from "../components/layout/footer";
 import { ContentWrapper } from "../components/layout/content";
+import { GoogleAnalytics } from "@next/third-parties/google";
+
 import "./globals.css";
 import "./icons.css";
 
@@ -32,6 +34,7 @@ export default function RootLayout({
         <ContentWrapper>{children}</ContentWrapper>
 
         <Footer />
+        <GoogleAnalytics gaId="G-G3QW29QDS4" />
       </body>
     </html>
   );
