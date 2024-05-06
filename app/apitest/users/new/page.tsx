@@ -1,20 +1,18 @@
 //import { Head } from "next/document";
 import { Metadata } from "next";
-import { redirect } from "next/navigation";
-
-import { useRouter } from "next/router";
-
 import Head from "next/head";
-import { Router } from "next/router";
 
-async function addData() {
-  const res = await fetch(`http://keithjasper.co.uk:8081/Users/`, {
+async function addData(id: number, name: string, age: number) {
+  const res: Response = await fetch(`http://keithjasper.co.uk:8081/Users/`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      id: id,
+      name: name,
+      age: age,
+    }),
   });
-
-  console.log(res.status);
-  console.log(res.statusText);
+  console.log(res.body);
 
   if (!res.ok) {
     throw new Error("Failed to add data");
@@ -29,13 +27,14 @@ export const metadata: Metadata = {
 const AddUser = () => {
   return (
     <>
-      <Head>
-        <title>Add User</title>
-      </Head>
       <h1>Add User</h1>
-      {addData()
-        //.then(redirect("/apitest/users"))
-        .catch((error) => console.error("Error adding data:", error))}
+      {(async () => {
+        try {
+          await addData(1, "test", 123);
+        } catch (error) {
+          console.error("Error adding data:", error);
+        }
+      })()}
       <div>I have just Added user</div>
     </>
   );
