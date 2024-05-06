@@ -27,7 +27,7 @@ export default function UsersPage({ initialData }: any) {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
     const name = formData.get("name") as string;
-    const age = formData.get("Age") as string;
+    const age = formData.get("age") as string; // Adjusted field name
     const id = formData.get("id") as string;
 
     try {
@@ -37,7 +37,7 @@ export default function UsersPage({ initialData }: any) {
           "Content-Type": "application/json",
           // Add any additional headers if needed
         },
-        body: JSON.stringify({ id, name, age }), // Convert data to JSON format
+        body: JSON.stringify({ user: { id, name, age } }), // Adjusted payload format
       });
       if (res.ok) {
         console.log("Data adding successful");
@@ -91,13 +91,13 @@ export default function UsersPage({ initialData }: any) {
           onSubmit={handleSubmit}
         >
           <FormText
-            name="name[]"
+            name="name"
             className="text-black"
             placeholder="Username"
             label="Username: "
           />
-          <FormText name="age[]" type="hidden" value="30" />
-          <FormText name="id[]" type="hidden" value="30" />
+          <FormText name="age" type="hidden" value="30" />
+          <FormText name="id" type="hidden" value="30" />
           <input type="submit" />
         </form>
         NEW USER FORM!
