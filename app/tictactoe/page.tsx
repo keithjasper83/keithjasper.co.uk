@@ -1,6 +1,6 @@
-"use client";
-import React, { useState, useEffect } from "react";
-import Head from "next/head";
+'use client';
+import React, { useState, useEffect } from 'react';
+import Head from 'next/head';
 
 const initialBoard = Array(9).fill(null);
 
@@ -23,7 +23,7 @@ const TicTacToe = () => {
     if (winner || board[index]) return;
 
     const newBoard = [...board];
-    newBoard[index] = xIsNext ? "X" : "O";
+    newBoard[index] = xIsNext ? 'X' : 'O';
     setBoard(newBoard);
     setXIsNext(!xIsNext);
 
@@ -63,17 +63,17 @@ const TicTacToe = () => {
     }
 
     if (board.every((square) => square)) {
-      return "Tie"; // All squares filled without a winner
+      return 'Tie'; // All squares filled without a winner
     }
 
     return null;
   };
 
   const status = winner
-    ? winner === "Tie"
+    ? winner === 'Tie'
       ? "It's a Tie!"
       : `Winner: ${winner}`
-    : `Next player: ${xIsNext ? "X" : "O"}`;
+    : `Next player: ${xIsNext ? 'X' : 'O'}`;
 
   return (
     <div className="game center-row flex-col mt-10">
@@ -97,7 +97,11 @@ const TicTacToe = () => {
       </div>
       <div className="status mt-10">{status}</div>
       <div className="mt-10">
-        <button onClick={resetGame} className="reset">
+        <button
+          type="reset"
+          onClick={resetGame}
+          className="rounded-xl p-4 bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500"
+        >
           Reset Game
         </button>
       </div>
