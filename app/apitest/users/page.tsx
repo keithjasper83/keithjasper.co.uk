@@ -75,7 +75,7 @@ export default function UsersPage({ initialData }: any) {
   };
 
   return (
-    <main>
+    <div className="row">
       {data &&
         data.map((item: any, index: number) => (
           <div key={index}>
@@ -109,6 +109,6 @@ export default function UsersPage({ initialData }: any) {
         </form>
         NEW USER FORM!
       </div>
-    </main>
+    </div>
   );
 }
