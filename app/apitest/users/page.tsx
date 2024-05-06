@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { FormText } from "@/components/forms/text";
 
-export default function UsersPage({ initialData }: { initialData: any[] }) {
+export default function UsersPage({ initialData }: any) {
   const [data, setData] = useState(initialData);
 
   useEffect(() => {
