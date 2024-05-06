@@ -33,8 +33,11 @@ export default function UsersPage({ initialData }: any) {
     try {
       const res = await fetch(`https://www.keithjasper.co.uk/realapi/Users/`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ id, name, age }),
+        headers: {
+          "Content-Type": "application/json",
+          // Add any additional headers if needed
+        },
+        body: JSON.stringify({ id, name, age }), // Convert data to JSON format
       });
       if (res.ok) {
         console.log("Data adding successful");
