@@ -26,9 +26,9 @@ export default function UsersPage({ initialData }: any) {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
-    const name = formData.get("Name") as string;
-    const age = formData.get("Age") as string; // Adjusted field name
-    const id = formData.get("Id") as string;
+    const Name = formData.get("Name") as string;
+    const Age = formData.get("Age") as string; // Adjusted field name
+    const Id = formData.get("Id") as string;
 
     try {
       const res = await fetch(`https://www.keithjasper.co.uk/realapi/Users/`, {
@@ -37,7 +37,7 @@ export default function UsersPage({ initialData }: any) {
           "Content-Type": "application/json",
           // Add any additional headers if needed
         },
-        body: JSON.stringify({ id, name, age }), // Adjusted payload format
+        body: JSON.stringify({ Id, Name, Age }), // Adjusted payload format
       });
       if (res.ok) {
         console.log("Data adding successful");
