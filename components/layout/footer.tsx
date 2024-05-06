@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Icons } from "../icons";
 
 export const Footer = () => {
   const today = new Date();
@@ -11,19 +12,53 @@ export const Footer = () => {
           <li></li>
         </ul>
         <ul>
-          <li>Socials</li>
-          <li>LinkedIn</li>
-          <li>YouTube</li>
-          <li>Twitter</li>
+          <li>
+            <Link
+              className="flex items-center"
+              target="_blank"
+              href="https://www.linkedin.com/in/keith-jasper-uk/"
+            >
+              <Icons name="linkedin" />
+              LinkedIn
+            </Link>
+          </li>
+          <li>
+            <Link
+              className="flex items-center"
+              target="_blank"
+              href="https://www.youtube.com/podman99"
+            >
+              <Icons name="youtube" />
+              YouTube
+            </Link>
+          </li>
+          <li>
+            <Link
+              className="flex items-center"
+              target="_blank"
+              href="https://www.x.com/podman99"
+            >
+              <Icons name="x-twitter" />X
+            </Link>
+          </li>
         </ul>
         <ul>
           <li>
-            <Link href="/downloads/">Downloads</Link>
+            <Link href="/downloads/" className="flex items-center">
+              <Icons name="download" />
+              Downloads
+            </Link>
           </li>
           <li>
-            <Link href="https://github.com/keithjasper83/">GitHub</Link>
+            <Link
+              href="https://github.com/keithjasper83/"
+              className="flex items-center"
+            >
+              {" "}
+              <Icons name="github" />
+              GitHub
+            </Link>
           </li>
-          <li>Footer Content 3</li>
         </ul>
       </div>
     </footer>

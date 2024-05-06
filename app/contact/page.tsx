@@ -13,6 +13,7 @@ const Contact = () => {
         <title>Contact</title>
       </Head>
       <h1>Contact</h1>
+      <p>Use social links below to contact me.</p>
     </>
   );
 };

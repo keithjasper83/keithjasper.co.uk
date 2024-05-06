@@ -5,15 +5,15 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Downloads",
+  title: "Games",
 };
-const Downloads = () => {
+const Games = () => {
   return (
     <>
       <Head>
-        <title>Downloads</title>
+        <title>Games</title>
       </Head>
-      <h1>Downloads</h1>
+      <h1>Games</h1>
       <div>
         <h2>KJ Scorched Earth</h2>
         <div className="flex">
@@ -89,4 +89,4 @@ const Downloads = () => {
   );
 };
 
-export default Downloads;
+export default Games;
