@@ -47,6 +47,25 @@ export default function UsersPage({ initialData }: any) {
     }
   };
 
+  const handleDelete = async (userId: string) => {
+    try {
+      const res = await fetch(
+        `https://www.keithjasper.co.uk/realapi/Users/${userId}`,
+        {
+          method: "DELETE",
+        }
+      );
+      if (res.ok) {
+        console.log("User deleted successfully");
+        fetchData(); // Refresh data after deleting user
+      } else {
+        throw new Error("Failed to delete user");
+      }
+    } catch (error) {
+      console.error("Error deleting user:", error);
+    }
+  };
+
   return (
     <main>
       {data &&
@@ -57,9 +76,7 @@ export default function UsersPage({ initialData }: any) {
                 <div>{item.name}</div>
                 <div>{item.id}</div>
               </Link>
-              <Link href={`/apitest/users/delete/${item.id}/`}>
-                Delete User
-              </Link>
+              <button onClick={() => handleDelete(item.id)}>Delete</button>
             </div>
           </div>
         ))}
