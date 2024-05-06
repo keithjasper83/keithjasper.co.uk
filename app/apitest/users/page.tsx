@@ -37,7 +37,7 @@ export default function UsersPage({ initialData }: any) {
           "Content-Type": "application/json",
           // Add any additional headers if needed
         },
-        body: JSON.stringify({ user: { id, name, age } }), // Adjusted payload format
+        body: JSON.stringify({ id, name, age }), // Adjusted payload format
       });
       if (res.ok) {
         console.log("Data adding successful");
