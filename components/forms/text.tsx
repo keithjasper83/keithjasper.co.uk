@@ -10,6 +10,7 @@ export const FormText = ({
   type = "text",
   autocomplete = "off",
   className,
+  value,
 }: TextFieldProps) => {
   return (
     <div>
@@ -20,6 +21,7 @@ export const FormText = ({
         className={className}
         name={name}
         placeholder={placeholder}
+        value={value}
       />
     </div>
   );

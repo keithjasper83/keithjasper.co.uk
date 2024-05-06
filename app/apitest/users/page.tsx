@@ -33,8 +33,8 @@ export default function UsersPage({ initialData }: any) {
     try {
       const jsonPostData = JSON.stringify({
         Name: name, // Include the Name field in the payload
-        Age: 88, // Adjust parsing if Age is expected to be an integer
-        Id: 88, // Adjust parsing if Id is expected to be an integer
+        Age: parseInt(age), // Adjust parsing if Age is expected to be an integer
+        Id: parseInt(id), // Adjust parsing if Id is expected to be an integer
       });
       console.log("jsonPostData", jsonPostData);
       const res = await fetch(`https://www.keithjasper.co.uk/realapi/Users/`, {
@@ -95,15 +95,17 @@ export default function UsersPage({ initialData }: any) {
           className="flex"
           onSubmit={handleSubmit}
         >
-          <FormText
-            name="name"
-            className="text-black"
-            placeholder="Username"
-            label="Username: "
-          />
-          <FormText name="age" type="hidden" value="30" />
-          <FormText name="id" type="hidden" value="30" />
-          <input type="submit" />
+          <div>
+            <FormText
+              name="name"
+              className="text-black"
+              placeholder="Username"
+              label="Username: "
+            />
+            <FormText name="age" type="hidden" value="30" />
+            <FormText name="id" type="hidden" value="30" />
+            <input type="submit" />
+          </div>
         </form>
         NEW USER FORM!
       </div>
