@@ -26,9 +26,9 @@ export default function UsersPage({ initialData }: any) {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
-    const name = formData.get("name") as string;
-    const age = formData.get("age") as string; // Adjusted field name
-    const id = formData.get("id") as string;
+    const name = formData.get("Name") as string;
+    const age = formData.get("Age") as string; // Adjusted field name
+    const id = formData.get("Id") as string;
 
     try {
       const res = await fetch(`https://www.keithjasper.co.uk/realapi/Users/`, {
@@ -91,13 +91,13 @@ export default function UsersPage({ initialData }: any) {
           onSubmit={handleSubmit}
         >
           <FormText
-            name="name"
+            name="Name"
             className="text-black"
             placeholder="Username"
             label="Username: "
           />
-          <FormText name="age" type="hidden" value="30" />
-          <FormText name="id" type="hidden" value="30" />
+          <FormText name="Age" type="hidden" value="30" />
+          <FormText name="Id" type="hidden" value="30" />
           <input type="submit" />
         </form>
         NEW USER FORM!
