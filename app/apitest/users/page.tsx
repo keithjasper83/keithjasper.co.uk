@@ -91,13 +91,13 @@ export default function UsersPage({ initialData }: any) {
           onSubmit={handleSubmit}
         >
           <FormText
-            name="name"
+            name="name[]"
             className="text-black"
             placeholder="Username"
             label="Username: "
           />
-          <FormText name="age" type="hidden" value="30" />
-          <FormText name="id" type="hidden" value="30" />
+          <FormText name="age[]" type="hidden" value="30" />
+          <FormText name="id[]" type="hidden" value="30" />
           <input type="submit" />
         </form>
         NEW USER FORM!
