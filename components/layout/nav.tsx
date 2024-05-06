@@ -22,7 +22,7 @@ const NavData = [
 // @ts-ignore
 export const Nav = () => {
   return (
-    <div className="bg-orange-500 w-full flex justify-center">
+    <div className=" w-full flex justify-center bg-gradient-to-r  from-orange-500 via-orange-600 to-orange-500 border-b-2 border-t-1 border-[#1e2730]">
       <div className="max-w-screen-xl w-full h-100px justify-between flex items-center">
         <h1 className="w-200px">Keith Jasper</h1>
         <ul className="flex items-center">

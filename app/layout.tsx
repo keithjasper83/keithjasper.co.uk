@@ -24,7 +24,7 @@ export default function RootLayout({
         <meta name="description" content="Keith Jasper" />
       </Head>
       <body
-        className={`${inter.className} w-full h-screen flex flex-col items-center`}
+        className={`${inter.className} w-full h-screen flex flex-col items-center bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#182027] via-[#080e14] to-[#1a130e]`}
       >
         <Nav />
         <ContentWrapper>{children}</ContentWrapper>
