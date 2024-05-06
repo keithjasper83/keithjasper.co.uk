@@ -37,11 +37,9 @@ export default function UsersPage({ initialData }: any) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          user: {
-            Id: parseInt(id), // Ensure Id is parsed as an integer
-            Name: name, // Adjust field names if needed
-            Age: parseInt(age), // Ensure Age is parsed as an integer if required
-          },
+          Name: name, // Include the Name field in the payload
+          Age: parseInt(age), // Adjust parsing if Age is expected to be an integer
+          Id: parseInt(id), // Adjust parsing if Id is expected to be an integer
         }),
       });
       if (res.ok) {
