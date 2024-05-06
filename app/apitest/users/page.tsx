@@ -96,7 +96,7 @@ export default function UsersPage({ initialData }: any) {
             placeholder="Username"
             label="Username: "
           />
-          <FormText name="Age" type="hidden" value="30" />
+          <FormText name="age" type="hidden" value="30" />
           <FormText name="id" type="hidden" value="30" />
           <input type="submit" />
         </form>
