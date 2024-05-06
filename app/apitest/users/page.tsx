@@ -33,8 +33,8 @@ export default function UsersPage({ initialData }: any) {
     try {
       const jsonPostData = JSON.stringify({
         Name: name, // Include the Name field in the payload
-        Age: parseInt(age), // Adjust parsing if Age is expected to be an integer
-        Id: parseInt(id), // Adjust parsing if Id is expected to be an integer
+        Age: 88, // Adjust parsing if Age is expected to be an integer
+        Id: 88, // Adjust parsing if Id is expected to be an integer
       });
       console.log("jsonPostData", jsonPostData);
       const res = await fetch(`https://www.keithjasper.co.uk/realapi/Users/`, {
