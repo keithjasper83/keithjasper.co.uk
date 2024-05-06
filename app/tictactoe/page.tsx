@@ -76,7 +76,7 @@ const TicTacToe = () => {
     : `Next player: ${xIsNext ? 'X' : 'O'}`;
 
   return (
-    <div className="game center-row flex-col mt-10">
+    <div className="game  center-row flex-col mt-10">
       <Head>
         <title>TicTacToe</title>
       </Head>

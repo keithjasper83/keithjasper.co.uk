@@ -1,11 +1,11 @@
-import { Metadata } from "next";
+import { Metadata } from 'next';
 
-import Head from "next/head";
-import Link from "next/link";
-import Image from "next/image";
+import Head from 'next/head';
+import Link from 'next/link';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
-  title: "Games",
+  title: 'Games',
 };
 const Games = () => {
   return (
@@ -13,12 +13,12 @@ const Games = () => {
       <Head>
         <title>Games</title>
       </Head>
-      <h1>Games</h1>
-      <div>
+      <div className="row">
+        <h1 className="py-10">Games</h1>
         <h2>KJ Scorched Earth</h2>
         <div className="flex">
           <Image
-            src={"/assets/images/KJScorched-Still.png"}
+            src={'/assets/images/KJScorched-Still.png'}
             alt="Scorched Screeenshot"
             width="320"
             height="240"
@@ -39,7 +39,7 @@ const Games = () => {
           Platform (Windows, OSX and Linux)
         </p>
         <p>
-          <Link href="/downloads/KJScorched.zip">Download</Link> -{" "}
+          <Link href="/downloads/KJScorched.zip">Download</Link> -{' '}
           <Link
             href="https://github.com/keithjasper83/Scorched2024"
             target="_blank"
@@ -48,11 +48,11 @@ const Games = () => {
           </Link>
         </p>
       </div>
-      <div>
+      <div className="row py-10">
         <h2>DevilApproaches</h2>
         <div className="flex">
           <Image
-            src={"/assets/images/DevilApproaches-Still.png"}
+            src={'/assets/images/DevilApproaches-Still.png'}
             alt="Devil Approaches Screenshot"
             width="320"
             height="240"
@@ -76,7 +76,7 @@ const Games = () => {
           (Windows, OSX and Linux) however that is still ongoing.
         </p>
         <p>
-          <Link href="/downloads/DevilApproaches.zip">Download</Link> -{" "}
+          <Link href="/downloads/DevilApproaches.zip">Download</Link> -{' '}
           <Link
             href="https://github.com/keithjasper83/DevilApproaches"
             target="_blank"
