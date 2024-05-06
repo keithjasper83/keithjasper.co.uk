@@ -16,13 +16,13 @@
   }
 }
 @font-face {
-  font-family: "Material Symbols Outlined";
+  font-family: 'Material Symbols Outlined';
   font-style: normal;
-  src: url(/assets/MaterialSymbolsOutlined.woff2) format("woff");
+  src: url(/assets/MaterialSymbolsOutlined.woff2) format('woff');
 }
 
 .material-symbols-outlined {
-  font-family: "Material Symbols Outlined";
+  font-family: 'Material Symbols Outlined';
   font-weight: normal;
   font-style: normal;
   font-size: 24px; /* Preferred icon size */
@@ -57,7 +57,7 @@ body {
 
 @layer components {
   .row {
-    @apply max-w-screen-xl w-full;
+    @apply max-w-screen-xl w-full mx-auto;
   }
 
   .center-row {
