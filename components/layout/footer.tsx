@@ -32,7 +32,7 @@ export const Footer = () => {
       <div className="row flex justify-around py-3">
         <ul>
           <li>&copy; Keith Jasper {today.getFullYear()}</li>
-          <li>Counter: `{counter}` (90's style visit count)</li>
+          <li>Counter: {counter} (90s style visit count)</li>
           <li></li>
         </ul>
         <ul>
