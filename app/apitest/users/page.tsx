@@ -27,11 +27,15 @@ export default function UsersPage({ initialData }: any) {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
     const name = formData.get("name") as string;
+    const email = formData.get("email") as string;
+    const address = formData.get("address") as string;
     const id = formData.get("id") as string;
 
     try {
       const jsonPostData = JSON.stringify({
         Name: name,
+        Email: email,
+        Address: address,
         Id: parseInt(id),
       });
       const res = await fetch(`https://www.keithjasper.co.uk/realapi/Users/`, {
@@ -102,6 +106,18 @@ export default function UsersPage({ initialData }: any) {
               className="text-black"
               placeholder="Username"
               label="Username: "
+            />
+            <FormText
+              name="email"
+              className="text-black"
+              placeholder="Email"
+              label="Email: "
+            />
+            <FormText
+              name="address"
+              className="text-black"
+              placeholder="Address"
+              label="Address: "
             />
             <FormText name="id" type="hidden" value="30" />
             <input type="submit" />
