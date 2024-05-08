@@ -1,4 +1,3 @@
-"use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { FormText } from "@/components/forms/text";
@@ -27,16 +26,13 @@ export default function UsersPage({ initialData }: any) {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
     const name = formData.get("name") as string;
-    const age = formData.get("age") as string;
     const id = formData.get("id") as string;
 
     try {
       const jsonPostData = JSON.stringify({
-        Name: name, // Include the Name field in the payload
-        Age: parseInt(age), // Adjust parsing if Age is expected to be an integer
-        Id: parseInt(id), // Adjust parsing if Id is expected to be an integer
+        Name: name,
+        Id: parseInt(id),
       });
-      console.log("jsonPostData", jsonPostData);
       const res = await fetch(`https://www.keithjasper.co.uk/realapi/Users/`, {
         method: "POST",
         headers: {
@@ -46,7 +42,7 @@ export default function UsersPage({ initialData }: any) {
       });
       if (res.ok) {
         console.log("Data adding successful");
-        fetchData(); // Refresh data after adding a new user
+        fetchData();
       } else {
         throw new Error("Failed to add data");
       }
@@ -65,7 +61,7 @@ export default function UsersPage({ initialData }: any) {
       );
       if (res.ok) {
         console.log("User deleted successfully");
-        fetchData(); // Refresh data after deleting user
+        fetchData();
       } else {
         throw new Error("Failed to delete user");
       }
@@ -77,12 +73,16 @@ export default function UsersPage({ initialData }: any) {
   return (
     <div className="row">
       {data &&
-        data.map((item: any, index: number) => (
-          <div key={index}>
+        data.map((item: any) => (
+          <div key={item.id}>
             <div className="bg-blue-700 flex">
               <Link href={`/apitest/users/${item.id}`} className="flex">
-                <div>{item.name}</div>
-                <div>{item.id}</div>
+                <div>
+                  <p>ID: {item.id}</p>
+                  <p>Name: {item.name}</p>
+                  <p>Email: {item.email}</p>
+                  <p>Address: {item.address}</p>
+                </div>
               </Link>
               <button onClick={() => handleDelete(item.id)}>Delete</button>
             </div>
@@ -102,7 +102,6 @@ export default function UsersPage({ initialData }: any) {
               placeholder="Username"
               label="Username: "
             />
-            <FormText name="age" type="hidden" value="30" />
             <FormText name="id" type="hidden" value="30" />
             <input type="submit" />
           </div>
