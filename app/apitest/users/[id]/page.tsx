@@ -3,7 +3,7 @@ import Link from "next/link";
 async function getData(id: number) {
   //const res = await fetch("http://localhost:5129/Users");
   //jsonplaceholder.typicode.com/users
-  const res = await fetch(`http://keithjasper.co.uk:8081/Users/${id}`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}Users/${id}`);
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
 

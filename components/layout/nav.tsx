@@ -22,6 +22,11 @@ const NavData = [
     location: "/games",
     image: "gamepad",
   },
+  {
+    content: "Blog",
+    location: "/blog",
+    image: "blog",
+  },
 ];
 
 // @ts-ignore

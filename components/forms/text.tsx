@@ -11,10 +11,11 @@ export const FormText = ({
   autocomplete = "off",
   className,
   value,
+  labelDisplay = true,
 }: TextFieldProps) => {
   return (
-    <div>
-      <label htmlFor={name}>{label}</label>
+    <>
+      {labelDisplay === true && <label htmlFor={name}>{label}</label>}
       <input
         type={type}
         autoComplete={autocomplete}
@@ -23,6 +24,6 @@ export const FormText = ({
         placeholder={placeholder}
         value={value}
       />
-    </div>
+    </>
   );
 };

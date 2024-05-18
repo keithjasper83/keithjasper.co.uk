@@ -1,39 +1,34 @@
-"use client";
-import { useState, useEffect } from "react";
+// Code: Footer Component
 
 import Link from "next/link";
 import { Icons } from "../icons";
+import { utilGetCounter } from "../requestCounterAPI/getcounter";
+import { Tooltip } from "@nextui-org/tooltip";
 
-export const Footer = () => {
-  const [counter, setCounter] = useState(null);
-
-  useEffect(() => {
-    const fetchCounter = async () => {
-      try {
-        const res = await fetch(
-          "https://www.keithjasper.co.uk/realapi/counter/"
-        );
-        if (!res.ok) {
-          throw new Error("Failed to fetch counter");
-        }
-        const data = await res.json();
-        setCounter(data); // assuming the response is a number
-      } catch (error) {
-        console.error("Error fetching counter:", error);
-      }
-    };
-
-    fetchCounter();
-  }, []);
-
+export const Footer = ({ counter }: any) => {
   const today = new Date();
+
+  // Server Action
+  async function getServerCounterValue() {
+    const counter = await utilGetCounter();
+    return counter;
+  }
+
   return (
     <footer className=" w-full flex justify-center bg-[linear-gradient(_var(--tw-gradient-stops))] to-[#13191f] via-[#13191f] from-[#13191f] border-t-2 border-[#1e2730] p-1 m-0">
       <div className="row flex justify-around py-3">
         <ul>
           <li>&copy; Keith Jasper {today.getFullYear()}</li>
-          <li>Counter: {counter} (90s style visit count)</li>
-          <li></li>
+          <li>
+            <Tooltip
+              className="bg-orange-500 border-12 border-orange-500 p-2 m-3 rounded-lg"
+              content="This counter has been cached by your browser. Using no-cache or CTRL+SHIFT+R will retrieve a new value."
+            >
+              <span>
+                Server Counter: {getServerCounterValue()} (Server Side Rendered)
+              </span>
+            </Tooltip>
+          </li>
         </ul>
         <ul>
           <li>
@@ -68,7 +63,7 @@ export const Footer = () => {
         </ul>
         <ul>
           <li>
-            <Link href="/downloads/" className="flex items-center">
+            <Link href="/games/" className="flex items-center">
               <Icons name="download" />
               Downloads
             </Link>

@@ -1,30 +1,26 @@
-import { title } from 'process';
-import { Icons } from '../components/icons';
+import { title } from "process";
+import { Icons } from "../components/icons";
 
 const skills = [
   {
-    title: 'Push to deploy',
-    content:
-      'Morbi viverra dui mi arcu sed. Tellus semper adipiscing suspendisse semper morbi. Odio urna massa nunc massa.',
-    icon: 'linkedin',
+    title: "Development",
+    content: "Developing code designed to fast, secure and reliable.",
+    icon: "code",
   },
   {
-    title: 'Push to deploy',
-    content:
-      'Morbi viverra dui mi arcu sed. Tellus semper adipiscing suspendisse semper morbi. Odio urna massa nunc massa.',
-    icon: 'linkedin',
+    title: "Management",
+    content: "Managing code base accross multiple environments and teams.",
+    icon: "stack",
   },
   {
-    title: 'Push to deploy',
-    content:
-      'Morbi viverra dui mi arcu sed. Tellus semper adipiscing suspendisse semper morbi. Odio urna massa nunc massa.',
-    icon: 'linkedin',
+    title: "Languages",
+    content: "Specialising in typescript, c# and python.",
+    icon: "language",
   },
   {
-    title: 'Push to deploy',
-    content:
-      'Morbi viverra dui mi arcu sed. Tellus semper adipiscing suspendisse semper morbi. Odio urna massa nunc massa.',
-    icon: 'linkedin',
+    title: "Idea to product",
+    content: "Lets discuss your idea and turn it into a product.",
+    icon: "lightbulb-o",
   },
 ];
 
@@ -37,12 +33,10 @@ export default function Home() {
             Deploy faster
           </h2>
           <p className="mt-2 text-3xl font-bold tracking-tight text-grey-200 sm:text-4xl">
-            Everything you need to deploy your app
+            Everything you need to deploy and maintain your app
           </p>
           <p className="mt-6 text-lg leading-8 text-gray-500">
-            Quis tellus eget adipiscing convallis sit sit eget aliquet quis.
-            Suspendisse eget egestas a elementum pulvinar et feugiat blandit at.
-            In mi viverra elit nunc.
+            Providing a full stack development service, from idea to product.
           </p>
         </div>
         <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">

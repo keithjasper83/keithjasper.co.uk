@@ -8,4 +8,5 @@ export interface InputProps {
   autocomplete?: string;
   className?: string;
   value?: string;
+  labelDisplay?: boolean;
 }

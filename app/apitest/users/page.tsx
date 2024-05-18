@@ -12,7 +12,7 @@ export default function UsersPage({ initialData }: any) {
 
   const fetchData = async () => {
     try {
-      const res = await fetch(`https://www.keithjasper.co.uk/realapi/Users/`);
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}Users/`);
       if (!res.ok) {
         throw new Error("Failed to fetch data");
       }
@@ -38,7 +38,7 @@ export default function UsersPage({ initialData }: any) {
         Address: address,
         Id: parseInt(id),
       });
-      const res = await fetch(`https://www.keithjasper.co.uk/realapi/Users/`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}Users/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -59,7 +59,7 @@ export default function UsersPage({ initialData }: any) {
   const handleDelete = async (userId: string) => {
     try {
       const res = await fetch(
-        `https://www.keithjasper.co.uk/realapi/Users/${userId}`,
+        `${process.env.NEXT_PUBLIC_API_URL}Users/${userId}`,
         {
           method: "DELETE",
         }
@@ -77,54 +77,81 @@ export default function UsersPage({ initialData }: any) {
 
   return (
     <div className="row">
-      {data &&
-        data.map((item: any) => (
-          <div key={item.id}>
-            <div className="bg-blue-700 flex">
-              <Link href={`/apitest/users/${item.id}`} className="flex">
-                <div>
-                  <p>ID: {item.id}</p>
-                  <p>Name: {item.name}</p>
-                  <p>Email: {item.email}</p>
-                  <p>Address: {item.address}</p>
-                </div>
-              </Link>
-              <button onClick={() => handleDelete(item.id)}>Delete</button>
-            </div>
-          </div>
-        ))}
-      <div>
-        <form
-          method="post"
-          action="/apitest/users/"
-          className="flex"
-          onSubmit={handleSubmit}
-        >
-          <div>
-            <FormText
-              name="name"
-              className="text-black"
-              placeholder="Username"
-              label="Username: "
-            />
-            <FormText
-              name="email"
-              className="text-black"
-              placeholder="Email"
-              label="Email: "
-            />
-            <FormText
-              name="address"
-              className="text-black"
-              placeholder="Address"
-              label="Address: "
-            />
-            <FormText name="id" type="hidden" value="30" />
-            <input type="submit" />
-          </div>
-        </form>
-        NEW USER FORM!
-      </div>
+      <form
+        method="post"
+        action="/apitest/users/"
+        className="flex"
+        onSubmit={handleSubmit}
+      >
+        <table className="table-fixed w-full">
+          <thead>
+            <tr>
+              <th className="w-[100px]">Id</th>
+              <th className="w-auto">Name</th>
+              <th className="w-auto">Email</th>
+              <th className="w-auto">Address</th>
+              <th className="w-auto"></th>
+            </tr>
+          </thead>
+          <tbody>
+            {data &&
+              data.map((item: any) => (
+                <tr key={item.id}>
+                  <td>
+                    <Link href={`/apitest/users/${item.id}`}>{item.id}</Link>
+                  </td>
+                  <td>{item.name}</td>
+                  <td>{item.email}</td>
+                  <td>{item.address}</td>
+                  <td>
+                    <button onClick={() => handleDelete(item.id)}>
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              ))}
+          </tbody>
+          <tfoot>
+            <tr>
+              <td>New User:</td>
+              <td>
+                <FormText
+                  name="name"
+                  className="text-black"
+                  placeholder="Username"
+                  label="Username: "
+                  labelDisplay={false}
+                />
+              </td>
+              <td>
+                <FormText
+                  name="email"
+                  className="text-black"
+                  placeholder="Email"
+                  label="Email: "
+                  labelDisplay={false}
+                />
+              </td>
+              <td>
+                <FormText
+                  name="address"
+                  className="text-black"
+                  placeholder="Address"
+                  label="Address: "
+                  labelDisplay={false}
+                />
+              </td>
+              <td>
+                <FormText name="id" type="hidden" value="30" />
+                <input
+                  type="submit"
+                  className="ly yz aac adu ajp arf arv avz awf bag bbm bir box boy bpa bphfocus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 "
+                />
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </form>
     </div>
   );
 }
