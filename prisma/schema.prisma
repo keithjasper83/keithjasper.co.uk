@@ -1,0 +1,26 @@
+// Update this file with the new structure
+// 1. npx prisma migrate dev --name <migration-name>
+// 2. npx prisma migrate deploy
+// 3. npx prisma generate
+// 4. edit /prisma/seed.ts if any seed data is required
+// fill database with seed data
+// 5. npm run seed
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id        Int     @id @default(autoincrement())
+  username  String  @unique
+  firstname String?
+  surname   String?
+  email     String?
+  password  String?
+  isAdmin   Boolean @default(false)
+}

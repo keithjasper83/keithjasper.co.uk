@@ -1,15 +1,44 @@
-import Link from 'next/link';
+// pages/404.tsx
+"use client";
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 
 const Page404 = () => {
+  const [randomImage, setRandomImage] = useState<string>("");
+
+  useEffect(() => {
+    const fetchRandomImage = async () => {
+      try {
+        const response = await fetch("/api/random404Image");
+        if (!response.ok) {
+          throw new Error("Failed to fetch random image");
+        }
+        const data = await response.json();
+        console.log("data:", data); // Debugging
+        setRandomImage(data);
+      } catch (error) {
+        console.error("Error fetching random image:", error);
+      }
+    };
+
+    fetchRandomImage();
+  }, []);
+
+  console.log("randomImage:", randomImage); // Debugging
   return (
     <div className="relative isolate min-h-full">
-      <img
-        src="
-        https://images.unsplash.com/photo-1559657693-e816ff3bd9af?q=80&w=2671&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-        alt=""
-        className="absolute inset-0 -z-10 h-full w-full object-cover object-top"
-      />
-      <div className="mx-auto max-w-7xl px-6 py-32 text-center sm:py-40 lg:px-8">
+      {randomImage && (
+        <Image
+          src={`/404/${randomImage}`}
+          alt="Page not found"
+          className="absolute inset-0 -z-10 h-full w-full brightness-50 object-cover object-top"
+          width="1920"
+          height="1080"
+        />
+      )}
+
+      <div className="mx-auto max-w-7xl px-6 py-32 text-center sm:py-40 lg:px-8 relative z-10">
         <p className="text-base font-semibold leading-8 text-white">404</p>
         <h1 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-5xl">
           Page not found

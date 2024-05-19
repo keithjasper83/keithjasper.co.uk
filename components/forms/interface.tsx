@@ -7,6 +7,6 @@ export interface InputProps {
   placeholder?: string;
   autocomplete?: string;
   className?: string;
-  value?: string;
+  value?: any;
   labelDisplay?: boolean;
 }

@@ -1,7 +1,8 @@
 // /lib/database/typesUser.tsx
 // Define the User interface.
 export type User = {
-  id: string;
+  isAdmin: any;
+  id?: string;
   username: string;
   firstname: string;
   surname: string;
