@@ -24,6 +24,7 @@ export default async function UserAddForm() {
   return (
     <form action={addUser}>
       <table>
+        <tbody>
         <tr>
           <td>New User:</td>
           <td>
@@ -74,6 +75,7 @@ export default async function UserAddForm() {
             />
           </td>
         </tr>
+        </tbody>
       </table>
     </form>
   );

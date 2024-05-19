@@ -18,11 +18,11 @@ async function deleteUser(formData: FormData) {
         id: Number(userId),
       },
     });
-    revalidatePath("/apitest/users");
   }
 }
 
 export default async function UsersPage() {
+  "use server";
   const users = await prisma.user.findMany();
 
   return (
@@ -52,7 +52,7 @@ export default async function UsersPage() {
               <td>{user.password && user.password.substring(0, 2)}...</td>
               <td>
                 {!user.isAdmin ? (
-                  <form action={deleteUser} method="post">
+                  <form action={deleteUser}>
                     <input type="hidden" name="userId" value={user.id} />
                     <button type="submit">Delete</button>
                   </form>
