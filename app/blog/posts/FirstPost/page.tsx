@@ -12,23 +12,23 @@ const SampleBlogPost1: React.FC = () => {
       </p>{" "}
       <p>Author: {frontmatter.author}</p>
       <p>
-        If you're reading this in the source code, you might be wondering:
-        what's going on here? Well, let me explain.
+        If you&apos;re reading this in the source code, you might be wondering:
+        what&apos;s going on here? Well, let me explain.
       </p>
       <p>
         Instead of using a traditional backend to manage my content and display
-        it in predefined ways, I've opted for a completely custom approach.
+        it in predefined ways, I&apos;ve opted for a completely custom approach.
         Essentially, if it can be written in TypeScript, it can be showcased
         here on this blog.
       </p>
       <p>
         Sure, there are more elegant solutions that generate pages dynamically
         at runtime and store content in databases. However, I prefer simplicity.
-        I'd rather spend my time writing code than endlessly customizing
+        I&apos;d rather spend my time writing code than endlessly customizing
         datasets and logic.
       </p>
       <p>
-        Here's the twist: rather than constantly updating posts with the latest
+        Here&apos;s the twist: rather than constantly updating posts with the latest
         developments in my journey, they remain static. This way, they capture
         the essence of my journey at different points in time, rather than just
         the end result.
@@ -55,8 +55,8 @@ const SampleBlogPost1: React.FC = () => {
       <p>
         While my rationale may evolve over time, my intention is to continue
         storing content in this manner and perhaps enhance it as technologies
-        progress. With the power of code, I can create a "static" HTML
-        website/blog in a "modern" way, showcasing complex tasks and code while
+        progress. With the power of code, I can create a &quot;static&quot; HTML
+        website/blog in a &quot;modern&quot; way, showcasing complex tasks and code while
         preserving its history.
       </p>
       <p>

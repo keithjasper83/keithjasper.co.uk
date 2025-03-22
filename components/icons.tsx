@@ -1,3 +1,13 @@
-export const Icons = ({ name, className = "mr-2" }: any) => {
-  return <i className={`${className} icon icon-${name}`} />;
-};
+import React from 'react';
+
+interface IconsProps {
+  name: string;
+  className?: string;
+  'aria-hidden'?: boolean;
+}
+
+export function Icons({ name, className = '', ...props }: IconsProps) {
+  return (
+    <i className={`pr-3 icon icon-${name} ${className}`} {...props} />
+  );
+}

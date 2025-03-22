@@ -19,7 +19,7 @@ export const Footer = ({ counter }: any) => {
       <div className="row flex justify-around py-3">
         <ul>
           <li>&copy; Keith Jasper {today.getFullYear()}</li>
-          <li>
+          {/* <li>
             <Tooltip
               className="bg-orange-500 border-12 border-orange-500 p-2 m-3 rounded-lg"
               content="This counter has been cached by your browser. Using no-cache or CTRL+SHIFT+R will retrieve a new value."
@@ -28,7 +28,7 @@ export const Footer = ({ counter }: any) => {
                 Server Counter: {getServerCounterValue()} (Server Side Rendered)
               </span>
             </Tooltip>
-          </li>
+          </li> */}
         </ul>
         <ul>
           <li>
@@ -80,7 +80,7 @@ export const Footer = ({ counter }: any) => {
           </li>
         </ul>
         <ul>
-          <li>
+          {/* <li>
             <Link href="/apitest/documentation/" className="flex items-center">
               API Docs
             </Link>{" "}
@@ -91,7 +91,7 @@ export const Footer = ({ counter }: any) => {
               Users
             </Link>{" "}
             <i>EXAMPLE</i>
-          </li>
+          </li> */}
         </ul>
       </div>
     </footer>
